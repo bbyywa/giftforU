@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" type="text/css" href="style5.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for u</title>
+    <!-- <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5e7d6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative; /* Mengatur posisi relatif untuk body */
+        }
+
+        .music-player {
+            background-color: #f1c38b;
+            border-radius: 20px;
+            padding: 20px;
+            width: 340px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative; /* Agar container-kanan bisa diposisikan relatif ke sini */
+        }
+
+        .music-player .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .music-player .header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #fff9f9;
+        }
+
+        .music-player .header .menu-icon {
+            background-color: #e6e3e0;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .music-player .header .menu-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .music-player img.album-art {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .music-player h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #fdfdff;
+        }
+
+        .music-player p.artist-name {
+            color: #a88151;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            background-color: #f8f8fa;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 0 10px;
+            box-shadow: 0px 5px 10px rgba(8, 8, 8, 0.1);
+            cursor: pointer;
+        }
+
+        .controls button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: #f5f3f1;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #a88151;
+            cursor: pointer;
+        }
+
+        .slider .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #faf5f6;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer button {
+            background-color: #f8f8f8;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer button img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .background-decor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fdfbfa;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: rgb(37, 56, 116);
+        }
+
+        .icon-overlay {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+            background-color: #fcfbfb;
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-overlay img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .lyrics {
+            margin-top: 20px;
+            color: #a88151;
+            font-size: 14px;
+            line-height: 1.5;
+            height: 100px; /* Adjust as needed */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lyrics-wrapper {
+            height: 100%;
+            overflow-y: scroll;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease; /* Smooth scrolling */
+        }
+
+        .lyrics p {
+            margin: 5px 0;
+            padding: 2px 0;
+        }
+
+        .highlight {
+            color: #fafafa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            .music-player {
+                width: 100%;
+                height: 98vh;
+                border-radius: 0;
+            }
+
+            .album-art {
+                width: 60%;
+                height: auto;
+                aspect-ratio: 1;
+            }
+        }
+
+/* Balon Terbang */
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 50px;
+    height: 70px;
+    background-color: #ecf1ec;
+    border-radius: 50% 50% 60% 60%;
+    box-shadow: inset -10px -20px 0 rgba(0, 0, 0, 0.2);
+    animation: fly 10s linear infinite;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #333;
+}
+
+/* Menambahkan warna berbeda pada balon */
+.balloon:nth-child(2) {
+    background-color: #ff69b4;
+    animation-delay: 2s;
+    left: 20%;
+}
+
+.balloon:nth-child(3) {
+    background-color: #fa79b9;
+    animation-delay: 4s;
+    left: 40%;
+}
+
+.balloon:nth-child(4) {
+    background-color: #ebcf34;
+    animation-delay: 6s;
+    left: 60%;
+}
+
+.balloon:nth-child(5) {
+    background-color: #7270f5;
+    animation-delay: 8s;
+    left: 80%;
+}
+
+/* Animasi terbang untuk balon */
+@keyframes fly {
+    0% {
+        bottom: -150px;
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        bottom: 110vh;
+        transform: translateX(-30px);
+    }
+}
+
+    .container-kanan {
+        width: 300px; /* Sesuaikan lebar sesuai kebutuhan */
+        background-color: #f1c38b;
+        padding: 20px;
+        border-radius: 15px;
+        height: 590px; /* Atur tinggi sesuai kebutuhan */
+        position: absolute; /* Mengatur posisi absolut */
+        top: 0; /* Posisi vertikal sama dengan music player */
+        right: 0; /* Muncul dari posisi kanan */
+        transform: translateX(100%); /* Sembunyi di luar layar ke kanan */
+        transition: transform 0.5s ease-in-out; /* Animasi muncul */
+        z-index: 1; /* Pastikan container di belakang music-player */
+    }
+
+    .container-kanan.show {
+        transform: translateX(0); /* Muncul dari belakang music player */
+    }
+    </style> -->
+</head>
+<body>
+
+    <div class="music-player">
+        <div class="background-decor">by bbyy</div>
+        
+        <div class="header">
+            <h2>Play Music</h2>
+            <div class="menu-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="Menu">
+            </div>
+        </div>
+
+        <img src="he.jpeg" alt="Album Art" class="album-art">
+        <h3 id="song-title">HAPPY BIRTHDAY!</h3>
+        <p class="artist-name">dear bayi</p>
+
+        <div class="controls">
+            <button id="prev"><img src="https://img.icons8.com/ios-filled/50/000000/skip-to-start.png" alt="Previous"></button>
+            <button id="play-pause"><img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play"></button>
+            <button id="next"><img src="https://img.icons8.com/ios-filled/50/000000/end.png" alt="Next"></button>
+        </div>
+
+        <div class="slider">
+            <input type="range" id="progress" min="0" max="100" value="0">
+            <div class="time">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="repeat"><img src="https://img.icons8.com/ios-glyphs/30/000000/replay.png" alt="Repeat"></button>
+            <button id="home"><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home"></button>
+            <button id="profile"><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Profile"></button>
+        </div>
+
+        <div class="lyrics">
+            <div class="lyrics-wrapper" id="lyrics">
+                <!-- Lirik akan ditampilkan di sini -->
+            </div>
+        </div>
+
+        <div class="icon-overlay">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/musical-notes.png" alt="Music Icon">
+        </div>
+    </div>
+
+    <button id="toggle-btn">→</button>
+<div class="container-kanan">
+    <p>semoga mimpi kamu tercapai yaa, jangan takut bermimpi tinggi,</p>
+    <p>karena orang sukses selalu berawal dari mimpi yang tinggi,</p>
+    <p>kalau kamu berusaha, doa dan yakin, pasti kamu bisa mencapainya kok,</p>
+    <p>usaha gaakan menghianati hasil kalau emang mimpi kamu belum tercapai,</p>
+    <p>ga perlu khawatir, Tuhan sudah menyiapkan yang terbaik untukmu.</p>
+    <p>tetap berjuang sampai kamu mendapatkan hasil yang kamu y!</p>
+    <p>God bless u!</p>
+</div>
+    
+    <audio id="audio" src="ultah.mp3" type="audio/mp3"></audio>
+    <!-- <iframe id ='audio' src="https://youtu.be/3h7dKUoI86c" title="description"></iframe> -->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/3h7dKUoI86c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+    <!-- Elemen balon untuk animasi -->
+        <div class="balloon" style="left: 10%;"></div>
+        <div class="balloon" style="left: 30%;"></div>
+        <div class="balloon" style="left: 50%;"></div>
+        <div class="balloon" style="left: 70%;"></div>
+        <div class="balloon" style="left: 90%;"></div>
+
+    
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progress = document.getElementById('progress');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const lyricsEl = document.getElementById('lyrics');
+        const songTitleEl = document.getElementById('song-title');
+        const repeatBtn = document.getElementById('repeat'); // Tombol Repeat
+
+        const lyricsData = {
+    "ultah": [
+        { time: 9, text: "Matius 21:22" },
+        { time: 11, text: "Dan apa saja yang kamu minta dalam doa dengan penuh kepercayaan, kamu akan menerimanya" }
+    ]
+};
+
+let lyricsInterval;
+let currentLine = 0;
+
+// Event listener untuk tombol play/pause
+playPauseBtn.addEventListener('click', togglePlayPause);
+
+// Saat metadata audio sudah siap, atur durasi maksimal progress bar
+audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    durationEl.textContent = formatTime(audio.duration);
+});
+
+// Event listener untuk memperbarui progress bar saat audio diputar
+audio.addEventListener('timeupdate', updateProgress);
+
+function togglePlayPause() {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/pause.png" alt="Pause">';
+        startLyrics();
+    } else {
+        audio.pause();
+        playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play">';
+        stopLyrics();
+    }
+}
+
+// Fungsi untuk memperbarui progress bar dan waktu
+function updateProgress() {
+    progress.value = audio.currentTime;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+    scrollLyrics(audio.currentTime);
+}
+
+// Fungsi untuk memformat waktu dari detik ke format menit:detik
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Fungsi untuk memulai menampilkan lirik
+function startLyrics() {
+    const lyrics = lyricsData["ultah"]; // Pastikan kunci yang digunakan adalah "ultah"
+    currentLine = 0;
+    lyricsEl.innerHTML = ''; // Kosongkan elemen lirik sebelum menambahkan lirik baru
+
+    // Tambahkan semua lirik ke elemen lirik
+    lyrics.forEach((line, index) => {
+        const p = document.createElement('p');
+        p.textContent = line.text;
+        lyricsEl.appendChild(p);
+    });
+
+    // Jalankan interval untuk menyoroti lirik berdasarkan waktu
+    lyricsInterval = setInterval(() => {
+        if (currentLine < lyrics.length) {
+            const lineTime = lyrics[currentLine].time;
+            if (Math.floor(audio.currentTime) === lineTime) {
+                highlightLyrics(currentLine);
+                currentLine++;
+            }
+        } else {
+            clearInterval(lyricsInterval);
+        }
+    }, 1000);
+}
+
+// Fungsi untuk menyoroti lirik berdasarkan indeks
+function highlightLyrics(index) {
+    const lines = lyricsEl.getElementsByTagName('p');
+    for (let i = 0; i < lines.length; i++) {
+        lines[i].classList.remove('highlight');
+    }
+    lines[index].classList.add('highlight');
+    const offset = lines[index].offsetTop;
+    lyricsEl.parentElement.scrollTo({ top: offset - 10, behavior: 'smooth' });
+}
+
+// Fungsi untuk menggulir lirik saat audio diputar
+function scrollLyrics(currentTime) {
+    if (currentLine < lyricsData["ultah"].length && Math.floor(currentTime) === lyricsData["ultah"][currentLine].time) {
+        highlightLyrics(currentLine);
+        currentLine++;
+    }
+}
+
+// Fungsi untuk menghentikan lirik saat audio dijeda
+function stopLyrics() {
+    clearInterval(lyricsInterval);
+}
+
+// Event listener untuk tombol repeat
+repeatBtn.addEventListener('click', () => {
+    audio.currentTime = 0; // Mengatur waktu pemutaran kembali ke awal
+    audio.play(); // Memulai pemutaran ulang
+});
+
+// Event listener untuk tombol home
+const homeBtn = document.getElementById('home');
+homeBtn.addEventListener('click', () => {
+    window.location.href = 'dashboard.html'; // Ganti dengan URL beranda yang benar
+});
+
+const toggleBtn = document.getElementById('toggle-btn');
+const containerKanan = document.querySelector('.container-kanan');
+
+toggleBtn.addEventListener('click', () => {
+    containerKanan.classList.toggle('show'); // Tambah atau hapus kelas show
+});
+
+
+    </script>
+</body>
+</html>

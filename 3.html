@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gift</title>
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #bdd1f5;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 0 20px; /* Jarak kiri dan kanan dari layar */
+            position: relative;
+        }
+
+        .wrapper {
+            text-align: center; /* Memastikan semua konten dalam wrapper terpusat */
+        }
+
+        .container {
+            width: 300px; /* Lebar container */
+            height: 65px; /* Tinggi container */
+            padding: 10px; /* Padding di dalam container */
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .text {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.4; /* Mengatur jarak baris teks */
+        }
+
+        .container-second {
+            position: absolute;
+            top: 100px; /* Jarak dari atas */
+            right: 400px; /* Jarak dari kanan */
+            width: 300px; /* Lebar container */
+            height: 150px; /* Tinggi container */
+            opacity: 0; /* Awalnya tidak terlihat */
+            transition: opacity 0.5s ease; /* Transisi untuk efek muncul */
+        }
+
+        .button-link {
+            width: 100px; /* Lebar button */
+            padding: 8px 0; /* Menyesuaikan tinggi */
+            text-decoration: none;
+            background-color: #437bc4;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            display: block;
+            text-align: center;
+            margin: 20px auto; /* Jarak antara container pertama dan button, serta untuk memusatkan button */
+        }
+
+        .button-link:hover {
+            background-color: #2c4f7c;
+        }
+
+        .icon-next {
+            margin-left: 3px;
+        }
+
+        /* Kelas untuk menunjukkan container kedua */
+        .show {
+            opacity: 1; /* Menjadikan terlihat */
+        }
+
+        /* Styling responsif untuk perangkat dengan lebar layar di bawah 600px */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%; /* Container menyesuaikan lebar layar */
+                max-width: 300px; /* Lebar maksimal tetap 300px */
+                font-size: 16px; /* Ukuran font lebih kecil */
+            }
+
+            .container-second {
+                top: 150px; /* Mengubah jarak top agar lebih pas di layar kecil */
+                right: 0; /* Menyesuaikan agar container kedua berada di tengah */
+                left: 0;
+                margin: 0 auto; /* Memusatkan container kedua */
+                max-width: 300px; /* Menjaga lebar maksimal container */
+            }
+
+            .button-link {
+                width: 80px; /* Lebar button lebih kecil di layar kecil */
+                font-size: 18px; /* Ukuran font lebih kecil */
+            }
+        }
+
+        /* Styling untuk perangkat dengan lebar layar di bawah 400px */
+        @media (max-width: 400px) {
+            .container {
+                font-size: 14px; /* Ukuran font lebih kecil */
+            }
+
+            .button-link {
+                width: 70px; /* Lebar button lebih kecil */
+                font-size: 16px; /* Ukuran font lebih kecil */
+            }
+
+            .text {
+                line-height: 1.2; /* Mengurangi jarak antar baris pada layar kecil */
+            }
+        }
+    </style> -->
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="text">
+                maaf sblmnya aku cmn mau ngucapin hbd aja kok
+            </div>
+        </div>
+
+        <a href="#" id="next-button" class="button-link">
+            <span class="icon-next">→</span>
+        </a>
+    </div>
+
+    <div class="container container-second" id="container-second">
+        <div class="text">
+            klo km udh pnya cwe aku minta maaf aku ga bermaksud apa", aku cmn mau balas budi aja karna km kmrn jg udh ngucapin hbd ke aku btw makasih ya:D
+        </div>
+    </div>
+
+    <script>
+        let clickedOnce = false; // Variabel untuk status klik
+
+        document.getElementById('next-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah navigasi default
+
+            // Jika tombol belum diklik sebelumnya
+            if (!clickedOnce) {
+                // Menampilkan teks di container kedua
+                var secondContainer = document.getElementById('container-second');
+                secondContainer.classList.add('show');
+                clickedOnce = true; // Mengatur status klik menjadi true
+            } else {
+                // Mengalihkan setelah klik kedua
+                window.location.href = 'hbd2.html'; // Mengalihkan ke halaman baru
+            }
+        });
+    </script>
+
+</body>
+</html>
